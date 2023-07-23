@@ -5,6 +5,12 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
 import django
 django.setup()
 from activities.models import News
+from datetime import datetime
+
+def extract_year(date_string):
+    date_obj = datetime.strptime(date_string, '%Y.%m.%d')
+    return date_obj.year
+
 
 def crawl_news():
     req = requests.get('https://e-cops.tistory.com/')
@@ -17,7 +23,8 @@ def crawl_news():
     for news_element in news_elements:
         title = news_element.select_one('div > a > strong').text.strip()
         #author = news_element.select_one('div > a > span > b').text.strip()
-        year = news_element.select_one('div > div > span').text.strip()
+        year_string = news_element.select_one('div > div > span').text.strip()
+        year = extract_year(year_string)
         link = news_element.select_one('div > a')['href']
         
         img_element = news_element.select_one('a > p > img')
@@ -30,18 +37,12 @@ def crawl_news():
             "link" : link,
             "img" : img,
         }
-        print("title:", news["title"])
-        #print("Author:", news["author"])
-        print("year:", news["year"])
-        print("link :", news["link"])
-        print("img :", news["img"])
-        print("-----")
         news_list.append(news)
 
     return news_list
 
 if __name__ == '__main__':
-
+    News.objects.all().delete()
     news_list = crawl_news() 
     for news_data in news_list: #db 저장
         a = News(title = news_data["title"], 
@@ -50,3 +51,10 @@ if __name__ == '__main__':
                   link = news_data["link"],
                   img = news_data["img"])
         a.save()
+
+        for news in News.objects.all():
+            print(f"Title: {news.title}")
+            print(f"Year: {news.year}")
+            print(f"Link: {news.link}")
+            print(f"Image: {news.img}")
+            print("-----------------------------")
