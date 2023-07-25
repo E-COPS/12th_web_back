@@ -5,5 +5,5 @@ class News(models.Model):
     year = models.IntegerField()
     link = models.TextField(default = 'http://127.0.0.1:8000/')
     img = models.TextField(default = '')
-    activity_descrption = models.TextField(default='')
+    activity_description = models.TextField(default='')
     type = models.TextField(default='')

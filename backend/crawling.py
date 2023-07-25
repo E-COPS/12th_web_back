@@ -26,6 +26,7 @@ def crawl_news():
         year_string = news_element.select_one('div > div > span').text.strip()
         year = extract_year(year_string)
         link = news_element.select_one('div > a')['href']
+        activity_description = news_element.select_one('div > div > a').text.strip()
         
         img_element = news_element.select_one('a > p > img')
         img = img_element['src'] if img_element else ''
@@ -36,6 +37,7 @@ def crawl_news():
             "year": year,
             "link" : link,
             "img" : img,
+            "activity_description" : activity_description,
         }
         news_list.append(news)
 
@@ -49,7 +51,8 @@ if __name__ == '__main__':
                   #author = news_data["author"], 
                   year = news_data["year"],
                   link = news_data["link"],
-                  img = news_data["img"])
+                  img = news_data["img"],
+                  activity_description = news_data["activity_description"])
         a.save()
 
         for news in News.objects.all():
@@ -57,4 +60,5 @@ if __name__ == '__main__':
             print(f"Year: {news.year}")
             print(f"Link: {news.link}")
             print(f"Image: {news.img}")
+            print(f"activity descrption: {news.activity_description}")
             print("-----------------------------")
