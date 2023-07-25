@@ -7,3 +7,4 @@ class News(models.Model):
     img = models.TextField(default = '')
     activity_description = models.TextField(default='')
     type = models.TextField(default='')
+    insta_link = models.TextField(default = 'https://www.instagram.com/ecops_ewha/')
