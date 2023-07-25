@@ -30,10 +30,12 @@ def memberDetail(request, year):
 @api_view(['POST'])
 def memberCreate(request):
     serializer=MembersSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-    else:
+    try:
+        if serializer.is_valid():
+            serializer.save()
+    except Exception as e:
         print("저장 안됨")
+        return Response(str(e))
     return Response(serializer.data)
 
 @api_view(['POST'])
