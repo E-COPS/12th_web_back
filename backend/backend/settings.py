@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'activities',
     # rest framework
     'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
