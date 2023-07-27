@@ -25,9 +25,9 @@ schema_url_patterns = [
 
 schema_view_v1 = get_schema_view(
     openapi.Info(
-        title="Open API",
+        title="ECOPS API",
         default_version='v1',
-        description="시스템 API",
+        description="ECOPS API",
         terms_of_service="https://www.google.com/policies/terms/",
     ),
     public=True,
