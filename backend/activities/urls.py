@@ -9,7 +9,7 @@ router.register('news', views.NewsViewSet)
 app_name = 'news'
 
 urlpatterns = [
-    
+    path('', views.apiOverview, name="api-overview"),
 ]
 
 urlpatterns += router.urls

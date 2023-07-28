@@ -19,10 +19,12 @@ from rest_framework.permissions import AllowAny
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+
+
 schema_url_patterns = [
     path('members/', include('members.urls')),
-    ]
-
+    path('api-news/', include('activities.urls')),
+]
 schema_view_v1 = get_schema_view(
     openapi.Info(
         title="ECOPS API",
