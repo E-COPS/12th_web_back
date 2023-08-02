@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework.permissions import AllowAny
@@ -24,6 +25,7 @@ from drf_yasg import openapi
 schema_url_patterns = [
     path('members/', include('members.urls')),
     path('api-news/', include('activities.urls')),
+    path('challenger/', include('challengers.urls')),
 ]
 schema_view_v1 = get_schema_view(
     openapi.Info(
@@ -43,5 +45,15 @@ urlpatterns = [
     re_path(r'^redoc/$', schema_view_v1.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
+# <<<<<<< challenger
+#     path('', include('challenger.urls')),
+#     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+#     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+#     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+# =======
     path('api-news/', include('activities.urls')),
+    path('challenger/', include('challenger.urls')),
+# >>>>>>> main
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
