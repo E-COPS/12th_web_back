@@ -16,13 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework.permissions import AllowAny
-from drf_yasg.views import get_schema_view 
+from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-schema_url_patterns = [ 
-    path('members/', include('members.urls')),
-    ]
 
+
+schema_url_patterns = [
+    path('members/', include('members.urls')),
+    path('api-news/', include('activities.urls')),
+]
 schema_view_v1 = get_schema_view(
     openapi.Info(
         title="ECOPS API",
@@ -41,5 +43,5 @@ urlpatterns = [
     re_path(r'^redoc/$', schema_view_v1.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('members/', include('members.urls'), name='members')
+    path('api-news/', include('activities.urls')),
 ]
