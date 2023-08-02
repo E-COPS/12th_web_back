@@ -1,3 +1,10 @@
 from django.db import models
-
-# Create your models here.
+class News(models.Model):
+    title = models.CharField(max_length=70)
+    author = models.TextField(default='')
+    year = models.IntegerField()
+    link = models.TextField(default = 'http://127.0.0.1:8000/')
+    img = models.TextField(default = '')
+    activity_description = models.TextField(default='')
+    type = models.TextField(default='')
+    insta_link = models.TextField(default = 'https://www.instagram.com/ecops_ewha/')

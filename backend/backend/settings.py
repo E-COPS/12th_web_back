@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'activities',
     # rest framework
     'rest_framework',
-    # drf-yasg
     'drf_yasg',
 ]
 
