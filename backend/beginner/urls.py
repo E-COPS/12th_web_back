@@ -17,7 +17,7 @@ beginner_list = BeginnerViewSet.as_view({
 beginner_detail = BeginnerViewSet.as_view({
     'get': 'retrieve',
     'put': 'update',
-    'delete': 'destroy'
+    'delete': 'destroy',
 
 })
 
