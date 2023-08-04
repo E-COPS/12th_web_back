@@ -25,7 +25,7 @@ from drf_yasg import openapi
 schema_url_patterns = [
     path('members/', include('members.urls')),
     path('api-news/', include('activities.urls')),
-    path('challenger/', include('challengers.urls')),
+    path('challenger/', include('challenger.urls')),
 ]
 schema_view_v1 = get_schema_view(
     openapi.Info(
@@ -52,7 +52,7 @@ urlpatterns = [
 #     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 # =======
     path('api-news/', include('activities.urls')),
-    path('challengers/', include('challengers.urls')),
+    path('challenger/', include('challenger.urls')),
 # >>>>>>> main
 ]
 
