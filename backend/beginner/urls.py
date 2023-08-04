@@ -28,7 +28,7 @@ urlpatterns = [
 
     path('<int:pk>/', beginner_detail),
 
-    path('', include(router.urls)),
+    # path('', include(router.urls)),
     
 ]
 
