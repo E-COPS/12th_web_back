@@ -29,6 +29,7 @@ urlpatterns = [
     path('<int:pk>/', beginner_detail),
 
     # path('', include(router.urls)),
+    # 중복되어서 주석처리
     
 ]
 
