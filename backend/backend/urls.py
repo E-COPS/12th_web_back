@@ -27,6 +27,7 @@ schema_url_patterns = [
     path('members/', include('members.urls')),
     path('api-news/', include('activities.urls')),
     path('challenger/', include('challenger.urls')),
+    path('beginner/', include('beginner.urls')),
 ]
 schema_view_v1 = get_schema_view(
     openapi.Info(
