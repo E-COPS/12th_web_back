@@ -52,7 +52,7 @@ urlpatterns = [
 #     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 # =======
     path('api-news/', include('activities.urls')),
-    path('challenger/', include('challenger.urls')),
+    path('challengers/', include('challengers.urls')),
 # >>>>>>> main
 ]
 
