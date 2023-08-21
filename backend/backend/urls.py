@@ -51,6 +51,7 @@ urlpatterns = [
     path('api-news/', include('activities.urls')),
     path('challenger/', include('challenger.urls')),
     path('beginner/', include('beginner.urls')),
+    path('members/', include('members.urls')),
 
 ]
 

@@ -29,6 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     ".ap-northeast-2.compute.amazonaws.com",
+    '127.0.0.1' ,
+    'django-env.eba-rbr47dt9.ap-northeast-2.elasticbeanstalk.com',
+    '13.209.22.185',
 ]
 
 
@@ -49,6 +52,9 @@ INSTALLED_APPS = [
     # rest framework
     'rest_framework',
     'drf_yasg',
+
+    #cors
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',     # CORS 관련 추가
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -80,6 +87,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
+
+# CORS 관련 추가
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000',
+                         'http://localhost:3000',
+                         'http://13.209.22.185',
+                         ]
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Database
@@ -130,6 +144,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
