@@ -6,7 +6,7 @@ class Members(models.Model):
     std_id=models.IntegerField(unique=True)
     name = models.CharField(max_length=100,unique=False)
     email = models.EmailField(null=True, blank=True, unique=True)
-    comment = models.TextField(max_length=12, blank=True,unique=False)#공백 가능
+    comment = models.TextField(max_length=120, blank=True,unique=False)#공백 가능
     insta_link = models.URLField(blank=True,unique=False)
     git_link = models.URLField(null=True, blank=True,unique=False)
     linkedin_link = models.URLField(blank=True,unique=False)
