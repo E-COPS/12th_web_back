@@ -32,6 +32,9 @@ ALLOWED_HOSTS = [
     '127.0.0.1' ,
     'django-env.eba-rbr47dt9.ap-northeast-2.elasticbeanstalk.com',
     '13.209.22.185',
+    '172.31.4.145',
+    '172.31.8.247',
+    'ecops.site',
 ]
 
 
@@ -92,6 +95,9 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000',
                          'http://localhost:3000',
                          'http://13.209.22.185',
+                         'http://172.31.4.145',
+                         'http://172.31.8.247',
+                         'http://ecops.site',
                          ]
 CORS_ALLOW_CREDENTIALS = True
 
